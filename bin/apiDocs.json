@@ -1,0 +1,306 @@
+[
+    {
+        "api": "/user/save",
+        "description": "Create user",
+        "method": "POST",
+        "reqPayload": {
+            "parentId": "6186d1aa7e6fc54b7ae788f1",
+            "parentRefId": "FREECOIN01036",
+            "name": "Test4",
+            "gender": "M",
+            "address": "Test address 4",
+            "mailId": "testmail@gmail.com",
+            "mobileNumber": "1231231231",
+            "isLeft": false,
+            "isRight": true
+        },
+        "response": {
+            "isUserCreated": true,
+            "userRefId": "FREECOIN01063",
+            "userId": "618d3a7dd81a4e22bdd81a1e"
+        }
+    },
+    {
+        "api": "/user/topup",
+        "description": "Add topup",
+        "method": "POST",
+        "reqPayload": {
+            "userId": "618d2d5bb58f7202eaf4c569",
+            "amount": 100.0
+        },
+        "response": "Topup done"
+    },
+    {
+        "api": "/user/getById/618d2fc9d81a4e22bdd819e2",
+        "description": "Get user details by userId",
+        "method": "GET",
+        "response": {
+            "id": "618d2fc9d81a4e22bdd819e2",
+            "name": "Test5",
+            "gender": "M",
+            "mailId": null,
+            "address": "Test address 5",
+            "status": "A",
+            "refId": "FREECOIN01058",
+            "parentId": "618d2d5bb58f7202eaf4c569",
+            "parentRefId": "FREECOIN01057"
+        }
+    },
+    {
+        "api": "/user/getChildDetails/left/618d2fc9d81a4e22bdd819e2",
+        "description": "Get left side child user name and amount",
+        "method": "GET",
+        "response": [
+            {
+                "total": 1.5,
+                "name": "Test6",
+                "userId": "618d362ed81a4e22bdd81a03"
+            },
+            {
+                "total": 1.5,
+                "name": "Test7",
+                "userId": "618d365ad81a4e22bdd81a08"
+            },
+            {
+                "total": 1.5,
+                "name": "Test4",
+                "userId": "618d39efd81a4e22bdd81a13"
+            },
+            {
+                "total": 1.5,
+                "name": "Test5",
+                "userId": "618d3a4ad81a4e22bdd81a19"
+            },
+            {
+                "total": 1.5,
+                "name": "Test6",
+                "userId": "618d3a7dd81a4e22bdd81a1e"
+            }
+        ]
+    },
+    {
+        "api": "/user/getChildDetails/right/6186d1aa7e6fc54b7ae788f1",
+        "description": "Get right side child user name and amount",
+        "method": "GET"
+    },
+    {
+        "api": "/user/topupReport/618d2d5bb58f7202eaf4c569",
+        "description": "Get user topup details",
+        "method": "GET",
+        "Response": [
+            {
+                "type": "C",
+                "transactionAt": "2021-11-11T14:51:20.972+00:00",
+                "amount": 100,
+                "message": "TOPUP_DONE"
+            },
+            {
+                "type": "C",
+                "transactionAt": "2021-11-11T14:55:29.086+00:00",
+                "amount": 100,
+                "message": "TOPUP_DONE"
+            }
+        ]
+    },
+    {
+        "api": "/user/incomeReport/618d2d5bb58f7202eaf4c569",
+        "description": "Get user income details",
+        "method": "GET",
+        "response": [
+            {
+                "type": "C",
+                "transactionAt": "2021-11-11T14:49:03.780+00:00",
+                "amount": 1.5,
+                "message": "NEW_JOIN"
+            },
+            {
+                "type": "C",
+                "transactionAt": "2021-11-11T14:51:20.972+00:00",
+                "amount": 100,
+                "message": "TOPUP_DONE"
+            },
+            {
+                "type": "C",
+                "transactionAt": "2021-11-11T14:55:29.086+00:00",
+                "amount": 100,
+                "message": "TOPUP_DONE"
+            },
+            {
+                "type": "C",
+                "transactionAt": "2021-11-11T14:59:22.748+00:00",
+                "amount": 1.5,
+                "message": "NEW_LEFT_CHILD_JOIN/618d2fc9d81a4e22bdd819e2"
+            },
+            {
+                "type": "C",
+                "transactionAt": "2021-11-11T15:00:17.846+00:00",
+                "amount": 5,
+                "message": "CHILD_TOPUP_DONE/618d2fc9d81a4e22bdd819e2"
+            },
+            {
+                "type": "C",
+                "transactionAt": "2021-11-11T15:26:40.328+00:00",
+                "amount": 1.5,
+                "message": "NEW_LEFT_CHILD_JOIN/618d362ed81a4e22bdd81a03"
+            },
+            {
+                "type": "C",
+                "transactionAt": "2021-11-11T15:27:27.197+00:00",
+                "amount": 1.5,
+                "message": "NEW_LEFT_CHILD_JOIN/618d365ad81a4e22bdd81a08"
+            }
+        ]
+    },
+    {
+        "api": "/auth/changePassword",
+        "description": "Change password",
+        "method": "POST",
+        "reqPayload": {
+            "userId": "618d5ea44feaf72887557b12",
+            "oldPassword": "7IK6JMEP",
+            "newPassword": "test1234"
+        },
+        "response": "true or false"
+    },
+    {
+        "api": "/user/notice/create",
+        "description": "Create notice",
+        "method": "POST",
+        "reqPayload": {
+            "userId": "618d5ea44feaf72887557b12",
+            "noticeType": "ACHIEVERS",
+            "message": "test2"
+        },
+        "response": {
+            "id": "618de48841b7d62ee60d6d50",
+            "userId": "618d5ea44feaf72887557b12",
+            "createdAt": "2021-11-12T03:50:32.998+00:00",
+            "noticeType": "ACHIEVERS",
+            "message": "test2"
+        }
+    },
+    {
+        "api": "/user/notice/618d5ea44feaf72887557b12",
+        "description": "Get user all notice (type wise grouping)",
+        "method": "GET",
+        "response": {
+            "EVENTS": [
+                {
+                    "id": "618de45b41b7d62ee60d6d4f",
+                    "userId": "618d5ea44feaf72887557b12",
+                    "createdAt": "2021-11-12T03:49:47.156+00:00",
+                    "noticeType": "EVENTS",
+                    "message": "test2"
+                }
+            ],
+            "ACHIEVERS": [
+                {
+                    "id": "618de48841b7d62ee60d6d50",
+                    "userId": "618d5ea44feaf72887557b12",
+                    "createdAt": "2021-11-12T03:50:32.998+00:00",
+                    "noticeType": "ACHIEVERS",
+                    "message": "test2"
+                }
+            ],
+            "NEWS": [
+                {
+                    "id": "618de43741b7d62ee60d6d4c",
+                    "userId": "618d5ea44feaf72887557b12",
+                    "createdAt": "2021-11-12T03:49:11.402+00:00",
+                    "noticeType": "NEWS",
+                    "message": "test 1"
+                }
+            ]
+        }
+    },
+    {
+        "api": "/user/bank/618dec1941b7d62ee60d6d8f",
+        "description": "Get user bank details by userId",
+        "method": "GET",
+        "response": {
+            "id": "618dec1a41b7d62ee60d6d91",
+            "userId": "618dec1941b7d62ee60d6d8f",
+            "accountNumber": "test acc number",
+            "ifscCode": "test ifsc code 2",
+            "branch": "test branch ",
+            "city": "test city"
+        }
+    },
+    {
+        "api": "/user/bank/update",
+        "description": "Update user bank details",
+        "method": "POST",
+        "reqPayload": {
+            "userId": "618dec1941b7d62ee60d6d8f",
+            "accountNumber": "test acc number",
+            "ifscCode": "test ifsc code 2",
+            "branch": "test branch ",
+            "city": "test city"
+        }
+    },
+    {
+        "api": "/user/referalReport/618d2d5bb58f7202eaf4c569",
+        "description": "Get user referal Report",
+        "method": "GET",
+        "response": [
+            {
+                "type": "C",
+                "transactionAt": "2021-11-11T14:59:22.748+00:00",
+                "amount": 1.5,
+                "message": "NEW_LEFT_CHILD_JOIN/618d2fc9d81a4e22bdd819e2"
+            },
+            {
+                "type": "C",
+                "transactionAt": "2021-11-11T15:26:40.328+00:00",
+                "amount": 1.5,
+                "message": "NEW_LEFT_CHILD_JOIN/618d362ed81a4e22bdd81a03"
+            },
+            {
+                "type": "C",
+                "transactionAt": "2021-11-11T15:27:27.197+00:00",
+                "amount": 1.5,
+                "message": "NEW_LEFT_CHILD_JOIN/618d365ad81a4e22bdd81a08"
+            }
+        ]
+    },
+    {
+        "api": "/user/roiReport/618df27b41b7d62ee60d6daf",
+        "description": "ROI report",
+        "method": "GET",
+        "response": [
+            {
+                "type": "C",
+                "transactionAt": "2021-11-12T04:55:15.018+00:00",
+                "amount": 10,
+                "message": "TOPUP_SELF_RETURN"
+            }
+        ]
+    },
+    {
+        "api": "/user/dailyprice",
+        "description": "Get daily price",
+        "response": {
+            "id": "618e30c841b7d62ee60d6e38",
+            "cost": 10
+        }
+    },
+    {
+        "api": "user/dailyprice/change",
+        "method": "POST",
+        "description": "Change daily price",
+        "reqPayload": {
+            "cost": 12
+        },
+        "response": "true or false"
+    },
+    {
+        "api": "/user/allUsersList",
+        "method": "GET",
+        "description": "Get all users list"
+    },
+    {
+        "api": "/auth/allAuthList",
+        "method": "GET",
+        "description": "Get all auth list"
+    }
+]
